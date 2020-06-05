@@ -8,8 +8,9 @@
 
 # Pre-requisitos
 
+:point_right:
 <details>
-  :point_right: <summary>Click aqui para ver los pre-requistos</summary>
+  <summary>Click aqui para ver los pre-requistos</summary>
   
 ## Multipass
 

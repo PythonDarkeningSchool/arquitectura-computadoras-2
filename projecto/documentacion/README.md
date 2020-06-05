@@ -181,10 +181,35 @@ sudo ufw allow 20/tcp && sudo ufw allow 21/tcp
 </details>
 
 
+### Habilitar la transferencia de archivos mediante FileZilla
+
+> **Los siguientes pasos solo se realizaran en el servidor principal (ftp-servidor-principal)r**
+
+1 - Entrar al servidor a traves de linea de comandos con `Git Bash`
+1.1 - Abrir `Git Bash`
+1.2 - Escribir el siguiente comando:
+
+````bash
+multipass shell ftp-servidor-principal
+````
+
+2 - Escribe el siguiente comando para habilitar la escritura de archivos en el archivo `/etc/vsftpd.conf`:
+
+````bash
+sudo sed -i 's|#write_enable=YES|write_enable=YES|g' /etc/vsftpd.conf
+````
+
+3 - Escribe el siguiente comando para reiniciar el servicio de `FTP`:
+
+````bash
+sudo systemctl restart vsftpd.service
+````
+
+
 ### Habilitando la transferencia de archivos mediante SSH a los servidores
 
-Habilitar la transferencia de archivos mediante el protocolo de `SSH` nos permitira el poder transferir archivos con softwares
-que usen el protocolo de `FTP` como lo son `FileZilla` (el cual ya hemos descargado previamente).
+Habilitar la transferencia de archivos mediante el protocolo de `SSH` nos permitira el poder sincronizar los archivos 
+subidos al servidor principal con el servidor espejo.
 
 > **Los siguientes pasos solo se realizaran en el servidor principal (ftp-servidor-principal)**
 

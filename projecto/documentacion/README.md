@@ -113,10 +113,10 @@ El significado de las siglas **FTP** es: `File Transfer Protocol` que es un prot
 interesa conocer un poco mas sobre este protocolo [has click aqui](https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_archivos)
 
 
+### Instalando paquetes en los servidores
+
 <details>
   <summary>Click aqui para ver la seccion de instalaion de paquetes en los servidores</summary>
-
-### Instalando paquetes en los servidores
 
 > **Los siguientes pasos se tendran que repetir en cada servidor**
 

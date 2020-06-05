@@ -221,6 +221,9 @@ sudo systemctl restart vsftpd.service
 
 ### Habilitando la transferencia de archivos mediante SSH a los servidores
 
+<details>
+  <summary>Click aqui para ver la seccion de transferencia de archivos mediante SSH a los servidores</summary>
+  
 Habilitar la transferencia de archivos mediante el protocolo de `SSH` nos permitira el poder sincronizar los archivos 
 subidos al servidor principal con el servidor espejo.
 
@@ -253,6 +256,10 @@ sudo sed -i 's|PasswordAuthentication no|PasswordAuthentication yes|g' /etc/ssh/
 ````bash
 sudo service ssh restart
 ````
+  
+</details>
+
+
 
 ### Habilitar la conexion de manera segura del servidor principal hacia el servidor espejo
 

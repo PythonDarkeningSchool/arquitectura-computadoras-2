@@ -1,6 +1,6 @@
 # Tabla de Contenidos
 
-- [Pre-requisito](#pre-requisitos)
+- [Pre-requisitos](#pre-requisitos)
     - [Multipass](#multipass)
         - [Instalando Multipass](#instalando-multipass)
     - [Instalando Git SCM](#instalando-git-scm)

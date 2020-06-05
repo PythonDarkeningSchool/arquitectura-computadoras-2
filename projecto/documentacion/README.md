@@ -72,6 +72,9 @@ automaticamente tendra el mismo archivo.
 
 ## Creando los servidores
 
+<details>
+  <summary>Click aqui para ver la seccion de creacion de servidores</summary>
+
 A continuacion se detallan los pasos para crear los servidores:
 
 1 - Abrir la consola de `Git CMD` y escribir los siguientes comandos:
@@ -103,6 +106,8 @@ multipass list
   
   ![server_list](assets/img/server_list.png)
   
+</details>
+
 </details>
 
 

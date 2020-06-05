@@ -5,12 +5,10 @@
         - [Instalando Multipass](#instalando-multipass)
     - [Instalando Git SCM](#instalando-git-scm)
     - [Instalando FileZilla](#instalando-filezilla)
-- [Pre-requisitos](#pre-requisitos)
-    - [Multipass](#multipass)
 - [Servidores](#servidores)
-    -[Creando los servidores](#creando-los-servidores)
-    -[Configurando los servidores](#configurando-los-servidores)
-    -[Probando la conexion FTP de los servidores](#probando-la-conexion-ftp-de-los-servidores)
+    - [Creando los servidores](#creando-los-servidores)
+    - [Configurando los servidores](#configurando-los-servidores)
+    - [Probando la conexion FTP de los servidores](#probando-la-conexion-ftp-de-los-servidores)
 
 
 # Pre-requisitos

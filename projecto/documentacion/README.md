@@ -356,6 +356,9 @@ echo "<la_llave_ssh_del_paso_3>" > "${HOME}/.ssh/authorized_keys"
 
 ## Probando la conexion FTP de los servidores
 
+<details>
+  <summary>Click aqui para ver la seccion de la conexion FTP de los servidores</summary>
+  
 > **Para probar que la conexion `FTP` este habilitada en cada servidor deberan repetir los siguientes pasos en cada servidor.**
 
 1 - Entrar al servidor a traves de linea de comandos con `Git Bash`
@@ -402,3 +405,6 @@ que subas al servidor.
   ![index_of](assets/img/index_of.png)
     
 </details>
+
+</details>
+

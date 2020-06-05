@@ -263,6 +263,9 @@ sudo service ssh restart
 
 ### Habilitar la conexion de manera segura del servidor principal hacia el servidor espejo
 
+<details>
+  <summary>Click aqui para ver la seccion de conexion segura al servidor principal hacia el servidor espejo</summary>
+  
 El habilitar la conexion del servidor principal hacia el servidor espejo le permitira al servidor principal poder sincronizar
 los cambios en los archivos para que sean actualizados de manera rapida y segura en el servidor espejo.
 
@@ -343,8 +346,13 @@ echo "<la_llave_ssh_del_paso_3>" > "${HOME}/.ssh/authorized_keys"
 ```
 
 > Nota: las comillas en el comando anterior son importantes, no olvides ponerlas
+  
+  
+</details>
+
 
  
+
 
 ## Probando la conexion FTP de los servidores
 

@@ -8,6 +8,9 @@
 
 # Pre-requisitos
 
+<details>
+  <summary>Click aqui para ver los pre-requistos</summary>
+  
 ## Multipass
 
 ![multipass](assets/img/multipass_logo.png)
@@ -44,3 +47,5 @@ El siguiente link lleva a la descarga de un ejecutable desde el sitio oficial:
 con mucha facilidad.
 
 - :link: [Link de descaga](https://filezilla-project.org/download.php?platform=win64)
+
+</details>

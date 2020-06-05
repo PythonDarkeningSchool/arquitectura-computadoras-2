@@ -9,6 +9,7 @@
     - [Creando los servidores](#creando-los-servidores)
     - [Configurando los servidores](#configurando-los-servidores)
     - [Probando la conexion FTP de los servidores](#probando-la-conexion-ftp-de-los-servidores)
+- [Autores](#autores)
 
 
 # Pre-requisitos

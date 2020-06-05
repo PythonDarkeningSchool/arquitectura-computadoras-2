@@ -22,6 +22,14 @@ export lista_servidores_para_ser_creados=()
 export los_servidores_necesitan_ser_creados="false"
 
 
+function mostrarLogo(){
+    echo
+    echo "┌─┐┌─┐┬─┐┬  ┬┬┌┬┐┌─┐┬─┐┌─┐┌─┐  ┌─┐┌┬┐┌─┐ "
+    echo "└─┐├┤ ├┬┘└┐┌┘│ │││ │├┬┘├┤ └─┐  ├┤  │ ├─┘ "
+    echo "└─┘└─┘┴└─ └┘ ┴─┴┘└─┘┴└─└─┘└─┘  └   ┴ ┴   "
+    echo
+}
+
 function mostrarMensaje(){
     local nivelDelMensaje=$1
     local mensaje=$2
@@ -116,6 +124,7 @@ function _eliminarServidores(){
     multipass purge
 
 }
+
 function _crearServidores(){
     local lista_servidores_para_ser_creados=($@)
 
@@ -127,7 +136,7 @@ function _crearServidores(){
         multipass launch --name ${servidor}
 
         if [[ $? -eq 0 ]]; then
-            let "actual_servidor++"
+            let "servidor_actual++"
         else
             mostrarMensaje "error" "el servidor '${servidor}' no pudo ser creado" && exit 1
         fi
@@ -163,5 +172,52 @@ function crearServidores(){
     fi
 }
 
+function _ejecutarComandoServidor(){
+    # Restrincciones: no se pueden ejecutar comandos con '&&', tienen que ser comandos individuales
+    local servidor=$1
+    local comando=$2
+    local imprimirResultado=$3
+
+    multipass exec ${servidor} -- ${comando} &> log.txt
+
+    if [[ $? -eq 0 ]]; then
+        [[ "${imprimirResultado}" = "imprimirResultado" ]] && echo "${GREEN}DONE${RESET}"
+    else
+        [[ "${imprimirResultado}" = "imprimirResultado" ]] && echo "${RED}FAIL${RESET}"
+        exit 1
+    fi
+
+}
+
+
+function instalarPaquetesServidores(){
+
+    local total_servidores=${#SERVIDORES[@]}
+    local servidor_actual=1
+
+    for servidor in "${SERVIDORES[@]}"; do
+        echo -ne "${BLUE}(info)${RESET} actualizando paquetes en el servidor '${servidor}' (${servidor_actual}/${total_servidores}) ... "
+        _ejecutarComandoServidor "${servidor}" "sudo apt update -y" "imprimirResultado"
+
+        echo -ne "${BLUE}(info)${RESET} upgradeando paquetes en el servidor '${servidor}' (${servidor_actual}/${total_servidores}) ... "
+        _ejecutarComandoServidor "${servidor}" "sudo apt upgrade -y" "imprimirResultado"
+
+        echo -ne "${BLUE}(info)${RESET} instalando paquetes para le servicio FTP en el servidor '${servidor}' (${servidor_actual}/${total_servidores}) ... "
+        _ejecutarComandoServidor "${servidor}" "sudo apt install vsftpd -y" "imprimirResultado"
+
+        echo -ne "${BLUE}(info)${RESET} habilitando el servicio de FTP en el servidor '${servidor}' (${servidor_actual}/${total_servidores}) ... "
+        _ejecutarComandoServidor "${servidor}" "sudo systemctl start vsftpd"
+        _ejecutarComandoServidor "${servidor}" "sudo systemctl enable vsftpd" "imprimirResultado"
+
+        echo -ne "${BLUE}(info)${RESET} creando el usuario para el servicio de FTP en el servidor '${servidor}' (${servidor_actual}/${total_servidores}) ... "
+        _ejecutarComandoServidor "${servidor}" "sudo useradd -d /home/testuser -m testuser -s /bin/bash" "imprimirResultado"
+
+
+    done
+
+}
+
+mostrarLogo
 verificarExistenciaServidores
 crearServidores
+instalarPaquetesServidores

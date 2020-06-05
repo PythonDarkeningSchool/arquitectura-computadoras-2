@@ -397,7 +397,7 @@ que subas al servidor.
 
 
 <details>
-  <summary>Click aqui para ver un ejemplor</summary>
+  <summary>Click aqui para ver un ejemplo</summary>
     
   ![index_of](assets/img/index_of.png)
     

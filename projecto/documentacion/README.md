@@ -112,6 +112,10 @@ A continuacion se configuran los servidores previamente creados para que funcion
 El significado de las siglas **FTP** es: `File Transfer Protocol` que es un protocolo de transfencia de archivos, si te 
 interesa conocer un poco mas sobre este protocolo [has click aqui](https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_archivos)
 
+
+<details>
+  <summary></summary>
+
 ### Instalando paquetes en los servidores
 
 > **Los siguientes pasos se tendran que repetir en cada servidor**
@@ -179,6 +183,10 @@ sudo ufw allow 20/tcp && sudo ufw allow 21/tcp
   ![allow_ports_to_firewall](assets/img/allow_ports_to_firewall.png)
   
 </details>
+
+</details>
+
+
 
 
 ### Habilitar la transferencia de archivos mediante FileZilla

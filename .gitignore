@@ -1,0 +1,62 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+/target
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+nbproject/
+/nbproject/**
+/nbproject/
+*.iml
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+/nbproject/
+api.log
+nbactions.tmp
+target/
+./target/**
+./target
+/target/
+.scannerwork/**
+./.scannerwork
+.scannerwork//
+/allure-results/
+
+# Tests
+logs/*
+*.log
+screenshots/*
+
+# Drivers
+src/main/resources/chromedriver
+src/main/resources/chromedriver.exe
+src/main/resources/geckodriver
+
+#Reports
+allure-report/
+
+#Screenshots
+test-output/
+
+
+#VSCode
+.factorypath
+.vscode/

@@ -116,7 +116,7 @@ interesa conocer un poco mas sobre este protocolo [has click aqui](https://es.wi
 ### Instalando paquetes en los servidores
 
 <details>
-  <summary>Click aqui para ver la seccion de instalaion de paquetes en los servidores</summary>
+  <summary>Click aqui para ver la seccion de instalacion de paquetes en los servidores</summary>
 
 > **Los siguientes pasos se tendran que repetir en cada servidor**
 

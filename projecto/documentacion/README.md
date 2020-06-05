@@ -112,6 +112,8 @@ A continuacion se configuran los servidores previamente creados para que funcion
 El significado de las siglas **FTP** es: `File Transfer Protocol` que es un protocolo de transfencia de archivos, si te 
 interesa conocer un poco mas sobre este protocolo [has click aqui](https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_archivos)
 
+### Instalando paquetes en los servidores
+
 > **Los siguientes pasos se tendran que repetir en cada servidor**
 
 1 - Entrar al servidor a traves de linea de comandos con `Git Bash`
@@ -178,6 +180,126 @@ sudo ufw allow 20/tcp && sudo ufw allow 21/tcp
   
 </details>
 
+
+### Habilitando la transferencia de archivos mediante SSH a los servidores
+
+Habilitar la transferencia de archivos mediante el protocolo de `SSH` nos permitira el poder transferir archivos con softwares
+que usen el protocolo de `FTP` como lo son `FileZilla` (el cual ya hemos descargado previamente).
+
+> **Los siguientes pasos solo se realizaran en el servidor principal (ftp-servidor-principal)**
+
+1 - Entrar al servidor a traves de linea de comandos con `Git Bash`
+1.1 - Abrir `Git Bash`
+1.2 - Escribir el siguiente comando:
+
+````bash
+multipass shell ftp-servidor-principal
+````
+
+<details>
+  <summary>Click aqui para ver un ejemplo del comando multipass shell "nombre-del-servidor"</summary>
+    
+  ![multipass_shell_server_x](assets/img/multipass_shell_server_x.png)
+    
+</details>
+
+2 - Escribir el siguiente comando para modificar el archivo `/etc/ssh/sshd_config` relacionado con el protocolo de `SSH`:
+
+````bash
+sudo sed -i 's|#PermitRootLogin prohibit-password|PermitRootLogin yes|g' /etc/ssh/sshd_config
+sudo sed -i 's|PasswordAuthentication no|PasswordAuthentication yes|g' /etc/ssh/sshd_config
+````
+
+3- Reiniciar el servicio de `SSH` para que surtan efectos los cambios realizados:
+
+````bash
+sudo service ssh restart
+````
+
+### Habilitar la conexion de manera segura del servidor principal hacia el servidor espejo
+
+El habilitar la conexion del servidor principal hacia el servidor espejo le permitira al servidor principal poder sincronizar
+los cambios en los archivos para que sean actualizados de manera rapida y segura en el servidor espejo.
+
+1 - Entrar al servidor a traves de linea de comandos con `Git Bash`
+1.1 - Abrir `Git Bash`
+1.2 - Escribir el siguiente comando:
+
+````bash
+multipass shell ftp-servidor-principal
+````
+
+2 - Escribir el siguiente comando para cambiarnos al usuario `testuser`:
+
+```bash
+su testuser
+```
+
+> Nota: el comando de arriva te pedira que introduzcas la contraseña para el usuario `testuser` la cual es **123**
+
+2.1 - Escribir el siguiente comando para cambiarnos al directorio del usuario `testuser:`
+
+````bash
+cd
+````
+
+2.2 - Escribir el siguiente comando para generar una llave `SSH`:
+
+````bash
+ssh-keygen
+```` 
+
+> Nota: despues de darle **Enter** al comando anterior, debemos de darle enter a todo lo demas, vease en el ejemplo de abajo
+
+<details>
+  <summary>Click aqui para ver un ejemplo de la salida del comando anterior</summary>
+  
+  ![ssh_keygen](assets/img/ssh_keygen.png)
+
+</details>
+
+
+3 - Escribir el siguiente comando para obtener la llave `SSH` generada:
+
+````bash
+cat "${HOME}/.ssh/id_rsa.pub"
+````
+
+> Has click en el siguiente ejemplo, ya que es la salida del comando anterior para que te des una idea de lo que tendras que
+> copiar y guardar para el siguiente paso (todo lo que esta en verde lo tendras que copiar).
+> Por motivos de seguridad la llave `SSH` generada en el ejemplo no se muestra completa.
+
+<details>
+  <summary>Click aqui para ver un ejemplo de la llave SSH </summary>
+  
+  ![ssh_key_main_server](assets/img/ssh_key_main_server.png)
+
+</details>
+
+
+una vez copiada la llave `SSH` escribe el siguiente comando para salir del servidor principal:
+
+````bash
+exit
+````
+
+4 - Escribe el siguiente comando para entrar al servidor espejo:
+
+````bash
+multipass shell ftp-servidor-principal
+````
+
+5 - Repite del paso 2 al paso 2.2
+
+6 - Escribe el siguiente comando para agregar la llave `SSH` del servidor principal al servidor espejo
+
+```bash
+echo "<la_llave_ssh_del_paso_3>" > "${HOME}/.ssh/authorized_keys"
+```
+
+> Nota: las comillas en el comando anterior son importantes, no olvides ponerlas
+
+ 
 
 ## Probando la conexion FTP de los servidores
 

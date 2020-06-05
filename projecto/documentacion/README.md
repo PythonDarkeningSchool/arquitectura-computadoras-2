@@ -177,3 +177,53 @@ sudo ufw allow 20/tcp && sudo ufw allow 21/tcp
   ![allow_ports_to_firewall](assets/img/allow_ports_to_firewall.png)
   
 </details>
+
+
+## Probando la conexion FTP de los servidores
+
+> **Para probar que la conexion `FTP` este habilitada en cada servidor deberan repetir los siguientes pasos en cada servidor.**
+
+1 - Entrar al servidor a traves de linea de comandos con `Git Bash`
+1.1 - Abrir `Git Bash`
+1.2 - Escribir el siguiente comando para obtener la direccion `IP` del servidor:
+
+````bash
+multipass ls
+````
+
+<details>
+  <summary>Click aqui para ver un ejemplo del comando anterior obteniendo la ip del servidor</summary>
+    
+  ![server_ips](assets/img/server_ips.png)
+    
+</details>
+
+
+2 - Abrir una pestaña de tu navegador (ejemplo: `Google Chrome`) y escribir lo siguiente:
+
+````text
+ftp://<direccion_ip_servidor>
+````
+
+<details>
+  <summary>Click aqui para ver un ejemplo del comando anterior</summary>
+    
+  ![ftp_browser_connection](assets/img/ftp_browser_connection.png)
+    
+</details>
+
+2.1 Escribir el usuario y contraseña previamente establecidos en el servidor los cuales son:
+
+- usuario: `testuser`
+- contraseña: `123`
+
+A este punto seras capaz de visualizar una pagina web con un titulo "Index of", es esta pagina se mostraran los archivos
+que subas al servidor.
+
+
+<details>
+  <summary>Click aqui para ver un ejemplor</summary>
+    
+  ![index_of](assets/img/index_of.png)
+    
+</details>

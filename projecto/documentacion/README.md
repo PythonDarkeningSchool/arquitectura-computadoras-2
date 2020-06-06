@@ -9,6 +9,10 @@
     - [Creando los servidores de manera automatica](#creando-los-servidores-de-manera-automatica)
     - [Creando los servidores de manera manual](#creando-los-servidores-de-manera-manual)
         - [Configurando los servidores](#configurando-los-servidores)
+            - [Instalando paquetes en los servidores](#instalando-paquetes-en-los-servidores)
+            - [Habilitar la transferencia de archivos mediante FileZilla](#habilitar-la-transferencia-de-archivos-mediante-filezilla)
+            - [Habilitando la transferencia de archivos mediante SSH a los servidores](#habilitando-la-transferencia-de-archivos-mediante-ssh-a-los-servidores)
+            - [Habilitar la conexion de manera segura del servidor principal hacia el servidor espejo](#habilitar-la-conexion-de-manera-segura-del-servidor-principal-hacia-el-servidor-espejo)
         - [Probando la conexion FTP de los servidores](#probando-la-conexion-ftp-de-los-servidores)
 - [Autores](#autores)
 

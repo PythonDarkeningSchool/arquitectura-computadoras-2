@@ -84,7 +84,11 @@ y correrlo en consola (`con GIT Bash en Windows`) con el siguiente comando:
 
 ```bash
 bash configuracion.sh
-```  
+```
+
+:exclamation: si realizas este paso, ya no necesitaras realizar ningun paso adicional :wink:
+
+> El tiempo de creacion de los servidores en promedio es de 2 a 3 minutos
 
 <details>
   <summary>Click aqui para ver un ejemplo de la salida del comando anterior</summary>

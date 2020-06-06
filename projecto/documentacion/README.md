@@ -8,8 +8,8 @@
 - [Servidores](#servidores)
     - [Creando los servidores de manera automatica](#creando-los-servidores-de-manera-automatica)
     - [Creando los servidores de manera manual](#creando-los-servidores-de-manera-manual)
-    - [Configurando los servidores](#configurando-los-servidores)
-    - [Probando la conexion FTP de los servidores](#probando-la-conexion-ftp-de-los-servidores)
+        - [Configurando los servidores](#configurando-los-servidores)
+        - [Probando la conexion FTP de los servidores](#probando-la-conexion-ftp-de-los-servidores)
 - [Autores](#autores)
 
 
@@ -139,14 +139,14 @@ multipass list
 </details> de manera manual
 
 
-## Configurando los servidores
+### Configurando los servidores
 
 A continuacion se configuran los servidores previamente creados para que funcionen con el protocolo de `FTP`.
 El significado de las siglas **FTP** es: `File Transfer Protocol` que es un protocolo de transfencia de archivos, si te 
 interesa conocer un poco mas sobre este protocolo [has click aqui](https://es.wikipedia.org/wiki/Protocolo_de_transferencia_de_archivos)
 
 
-### Instalando paquetes en los servidores
+#### Instalando paquetes en los servidores
 
 <details>
   <summary>Click aqui para ver la seccion de instalacion de paquetes en los servidores</summary>
@@ -221,7 +221,7 @@ sudo ufw allow 20/tcp && sudo ufw allow 21/tcp
 
 
 
-### Habilitar la transferencia de archivos mediante FileZilla
+#### Habilitar la transferencia de archivos mediante FileZilla
 
 <details>
   <summary>Click aqui para ver la seccion de habilitar la transferencia de archivos mediante FileZilla</summary>
@@ -252,7 +252,7 @@ sudo systemctl restart vsftpd.service
 
 
 
-### Habilitando la transferencia de archivos mediante SSH a los servidores
+#### Habilitando la transferencia de archivos mediante SSH a los servidores
 
 <details>
   <summary>Click aqui para ver la seccion de transferencia de archivos mediante SSH a los servidores</summary>
@@ -294,7 +294,7 @@ sudo service ssh restart
 
 
 
-### Habilitar la conexion de manera segura del servidor principal hacia el servidor espejo
+#### Habilitar la conexion de manera segura del servidor principal hacia el servidor espejo
 
 <details>
   <summary>Click aqui para ver la seccion de conexion segura al servidor principal hacia el servidor espejo</summary>
@@ -387,7 +387,7 @@ echo "<la_llave_ssh_del_paso_3>" > "${HOME}/.ssh/authorized_keys"
  
 
 
-## Probando la conexion FTP de los servidores
+### Probando la conexion FTP de los servidores
 
 <details>
   <summary>Click aqui para ver la seccion de la conexion FTP de los servidores</summary>

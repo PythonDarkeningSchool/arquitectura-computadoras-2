@@ -371,6 +371,10 @@ function mostrarMensajeConexion(){
     echo "> ftp://${ip_servidor_principal}"
     echo "> ftp://${ip_servidor_espejo}"
     echo
+    echo -e "las credenciales son: \n"
+    echo " - usuario   : testuser "
+    echo " - password  : 123 "
+    echo
 }
 
 mostrarLogo # paso 1

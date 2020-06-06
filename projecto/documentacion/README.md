@@ -6,7 +6,8 @@
     - [Instalando Git SCM](#instalando-git-scm)
     - [Instalando FileZilla](#instalando-filezilla)
 - [Servidores](#servidores)
-    - [Creando los servidores](#creando-los-servidores)
+    - [Creando los servidores de manera automatica](#creando-los-servidores-de-manera-automatica)
+    - [Creando los servidores de manera manual](#creando-los-servidores-de-manera-manual)
     - [Configurando los servidores](#configurando-los-servidores)
     - [Probando la conexion FTP de los servidores](#probando-la-conexion-ftp-de-los-servidores)
 - [Autores](#autores)
@@ -76,7 +77,24 @@ La funcion del servidor espejo es tener una copia fiel tanto del sistema operati
 en el servidor principal, esto quiere decir que si el usuario sube un archivo al servidor principal el servidor espejo
 automaticamente tendra el mismo archivo.
 
-## Creando los servidores
+## Creando los servidores de manera automatica
+
+Para crear los servidores de manera automatica basta con descargar el script de bash de este :point_right: [link](assets/scripts/configuracion.sh)
+y correrlo en consola (`con GIT Bash en Windows`) con el siguiente comando:
+
+```bash
+bash configuracion.sh
+```  
+
+<details>
+  <summary>Click aqui para ver un ejemplo de la salida del comando anterior</summary>
+  
+  ![salidaScriptConfiguracionSH](assets/img/salidaScriptConfiguracionSH.png)
+  
+</details>
+
+
+## Creando los servidores de manera manual
 
 <details>
   <summary>Click aqui para ver la seccion de creacion de servidores</summary>
@@ -114,7 +132,7 @@ multipass list
   
 </details>
 
-</details>
+</details> de manera manual
 
 
 ## Configurando los servidores

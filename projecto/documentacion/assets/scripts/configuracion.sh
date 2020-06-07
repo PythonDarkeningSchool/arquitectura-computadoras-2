@@ -315,6 +315,31 @@ function probarConexionSSHEntreServidores(){
     fi
 }
 
+function insertarBackupScriptEnElServidorPrincipal(){
+
+    ip_servidor_espejo=$(multipass ls | grep "ftp-servidor-espejo" | awk '{print $3}')
+    local backupScript="/home/${FTP_USER}/.backup"
+
+    echo -ne "${BLUE}(info)${RESET} insertando el script para hacer backups automaticos en el servidor 'ftp-servidor-principal' ... "
+    # standalone commands
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "touch ${backupScript}"
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "chmod +x ${backupScript}"
+
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "echo '#!/bin/bash' >> ${backupScript}"
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "echo 'while true; do' >> ${backupScript}"
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "echo 'rsync -zaP /home/${FTP_USER}/ ${FTP_USER}@${ip_servidor_espejo}:/home/${FTP_USER}' >> ${backupScript}"
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "echo 'sleep 1' >> ${backupScript}"
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "(crontab -l ; echo '@reboot sleep 5; /bin/bash ${backupScript} &> /tmp/backup.log') | crontab -;"
+
+    if [[  $? -ne 0  ]]; then
+        echo "${RED}FAIL${RESET}"
+        mostrarMensaje "error" "no se pudo insertar el script para hacer backups automaticos en el servidor 'ftp-servidor-espejo'"
+        exit 1
+    else
+        echo "${GREEN}DONE${RESET}"
+    fi
+}
+
 function _iniciar_servidor(){
     local servidor=$1
     multipass start ${servidor} &> log.txt
@@ -383,5 +408,6 @@ crearServidores # paso 3
 instalarPaquetesServidores # paso 4
 habilitarConexionEntreServidores # paso 5
 probarConexionSSHEntreServidores # paso 6
-reiniciarServidores # paso 7
-mostrarMensajeConexion # paso 8
+insertarBackupScriptEnElServidorPrincipal # paso 7
+reiniciarServidores # paso 8
+mostrarMensajeConexion # paso 9

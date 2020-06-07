@@ -6,6 +6,7 @@ export CONFIRMACIONES="si no"
 export OPCIONES_CREACION_SERVIDORES="1 2"
 export FTP_USER="testuser"
 export FTP_USER_PASSWORD="123"
+export UBUNTU_IMAGE="bionic"
 
 # Colors
 export BLACK=$(tput setaf 0)
@@ -134,7 +135,7 @@ function _crearServidores(){
 
     for servidor in "${lista_servidores_para_ser_creados[@]}"; do
         mostrarMensaje "info" "creando el servidor '${BOLD}${servidor}${RESET}' (${servidor_actual}/${total_servidores}) ..."
-        multipass launch --name ${servidor}
+        multipass launch ${UBUNTU_IMAGE} --name ${servidor}
 
         if [[ $? -eq 0 ]]; then
             let "servidor_actual++"
@@ -329,7 +330,8 @@ function insertarBackupScriptEnElServidorPrincipal(){
     multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "echo 'while true; do' >> ${backupScript}"
     multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "echo 'rsync -zaP /home/${FTP_USER}/ ${FTP_USER}@${ip_servidor_espejo}:/home/${FTP_USER}' >> ${backupScript}"
     multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "echo 'sleep 1' >> ${backupScript}"
-    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "(crontab -l ; echo '@reboot sleep 5; /bin/bash ${backupScript} &> /tmp/backup.log') | crontab -;"
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "echo 'done' >> ${backupScript}"
+    multipass exec -- "ftp-servidor-principal" sudo -H -u ${FTP_USER} bash -c "(crontab -l &> /dev/null; echo '@reboot sleep 5; /bin/bash ${backupScript} &> /tmp/backup.log') | crontab -;"
 
     if [[  $? -ne 0  ]]; then
         echo "${RED}FAIL${RESET}"

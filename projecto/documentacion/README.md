@@ -445,6 +445,46 @@ que subas al servidor.
 
 </details>
 
+# Subiendo archivos con FileZilla
+
+1 - Debes abrir dos ventanas con `Google Chrome` y escribir la siguiente URL en cada una de ellas:
+
+- ftp://<direccion_ip_servidor_principal>
+- ftp://<direccion_ip_servidor_espejo>
+
+<details>
+  <summary>Click aqui para ver un ejemplo de las pestañas abiertas de Chrome</summary>
+  
+  ![pestanas_chrome](assets/img/pestanas_chrome.png)
+
+</details>
+
+> cada ventana te pedira credenciales, pon las siguientes:
+> usuario     : `testuser`
+> contraseña  : `123`
+
+2 - Abre `FileZilla` y sube un archivo al servidor principal
+
+> En el programa `FileZilla` en la parte de **Host** tendras que ingresar la IP del servidor principal, de igual manera
+> te pedira las credenciales
+
+<details>
+  <summary>Click aqui para ver un ejemplo de como subir un archivo con FileZilla al servidor principal</summary>
+  
+  ![filezilla_example](assets/img/filezilla_example.png)
+  
+</details>
+
+
+3 - Refresca ambas pestañas de `Google Chrome` para que se vea reflejado el archivo que subiste
+
+<details>
+  <summary>Click aqui para ver como aparece el archivo en el servidor espejo</summary>
+  
+  ![example_clonezilla_both_servers](assets/img/example_clonezilla_both_servers.png)
+  
+</details> 
+
 
 # Autores
 

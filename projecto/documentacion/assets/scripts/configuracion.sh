@@ -395,8 +395,8 @@ function mostrarMensajeConexion(){
     echo "└─┘└─┘┴└─ └┘ ┴─┴┘└─┘┴└─└─┘└─┘  └─┘┴└─└─┘┴ ┴─┴┘└─┘└─┘  └─┘└─┘┘└┘  └─┘┴ └─┴ ┴ └─┘"
     echo
     echo -e "Puedes abrir dos pestañas de Google Chrome y acceder a las siguientes direcciones: \n"
-    echo "> ftp://${ip_servidor_principal}"
-    echo "> ftp://${ip_servidor_espejo}"
+    echo "> ftp://${ip_servidor_principal} (servidor principal)"
+    echo "> ftp://${ip_servidor_espejo} (servidor espejo)"
     echo
     echo -e "las credenciales son: \n"
     echo " - usuario   : testuser "

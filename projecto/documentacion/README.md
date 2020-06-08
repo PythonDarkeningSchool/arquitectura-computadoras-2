@@ -14,6 +14,7 @@
             - [Habilitando la transferencia de archivos mediante SSH a los servidores](#habilitando-la-transferencia-de-archivos-mediante-ssh-a-los-servidores)
             - [Habilitar la conexion de manera segura del servidor principal hacia el servidor espejo](#habilitar-la-conexion-de-manera-segura-del-servidor-principal-hacia-el-servidor-espejo)
         - [Probando la conexion FTP de los servidores](#probando-la-conexion-ftp-de-los-servidores)
+- [Subiendo archivos con FileZilla](#subiendo-archivos-con-filezilla)
 - [Autores](#autores)
 
 
